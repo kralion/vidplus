@@ -12,7 +12,7 @@ const NavLinks = [
 
 export default function NavBar() {
   return (
-    <section className="flex items-center justify-between px-20 py-8 text-white">
+    <section className="flex items-center justify-between px-24 py-8 text-white">
       <div className="flex gap-2">
         <Image
           src="https://cdn-icons-png.flaticon.com/128/922/922672.png"
@@ -39,7 +39,6 @@ export default function NavBar() {
             padding: "20px 30px",
           }}
           size="3"
-          className="px-6 py-3"
           variant="solid"
         >
           Free Trial

@@ -6,6 +6,7 @@ import { api } from "@/trpc/server";
 import { Flex, Text, Button, Box, Grid } from "@radix-ui/themes";
 import { DialogRadix } from "./_components/dialog";
 import { PaginationFloatUI } from "./_components/pagination";
+import { CheckCircledIcon } from "@radix-ui/react-icons";
 import HeroAsset from "@/assets/images/meeting.png";
 import Image from "next/image";
 export default async function Home() {
@@ -13,20 +14,77 @@ export default async function Home() {
   const session = await getServerAuthSession();
 
   return (
-    <main className="flex  items-center justify-center gap-2 text-white">
-      <div className="w-1/2">
-        <Text className="text-3xl font-extrabold tracking-tight sm:text-[5rem]">
-          Customize Meetings <br />
-          <span className="text-[hsl(280,100%,70%)]">Your Way</span>
+    <main className="flex items-center  justify-center gap-16 px-24 text-white">
+      <Flex direction="column" gap="6" className="w-1/2">
+        <Text className=" text-6xl font-extrabold tracking-tight">
+          Customize Your Meetings
         </Text>
-        <Text className="text-3xl font-extrabold tracking-tight sm:text-[5rem]">
-          <span className="text-[hsl(280,100%,70%)]">Vid</span> Plus
-        </Text>
-        <Text className="text-3xl font-extrabold tracking-tight sm:text-[5rem]"></Text>
-        <Link href="/about">
-          <Button variant="solid">About</Button>
-        </Link>
-      </div>
+        <Flex direction="column" gap="2">
+          <Text size="4" className="font-semibold">
+            Provides instant messaging API through any device
+          </Text>
+        </Flex>
+        <Grid columns="2" gap="6">
+          <Flex gap="2" align="center">
+            <CheckCircledIcon
+              width={30}
+              height={30}
+              className="rounded-full bg-tertiary font-semibold text-black"
+            />
+            <Text size="4" className="font-semibold">
+              30 days free trial
+            </Text>
+          </Flex>
+          <Flex gap="2" align="center">
+            <CheckCircledIcon
+              width={30}
+              height={30}
+              className="rounded-full bg-tertiary font-semibold text-black"
+            />
+            <Text size="4" className="font-semibold">
+              100% secure network
+            </Text>
+          </Flex>
+          <Flex gap="2" align="center">
+            <CheckCircledIcon
+              width={30}
+              height={30}
+              className="rounded-full bg-tertiary font-semibold text-black"
+            />
+            <Text size="4" className="font-semibold">
+              Quick and easy testing
+            </Text>
+          </Flex>
+          <Flex gap="2" align="center">
+            <CheckCircledIcon
+              width={30}
+              height={30}
+              className="rounded-full bg-tertiary font-semibold text-black"
+            />
+            <Text size="4" className="font-semibold">
+              Technical support
+            </Text>
+          </Flex>
+        </Grid>
+        <Flex gap="2" align="center">
+          <input
+            type="text"
+            placeholder="Your work email"
+            className=" h-14  w-full rounded-full  px-4 text-black outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50"
+          />
+
+          <Button
+            className="relative -left-[165px] "
+            style={{
+              padding: "20px 30px",
+            }}
+            size="4"
+          >
+            Get Started
+          </Button>
+        </Flex>
+      </Flex>
+
       <Image src={HeroAsset} alt="hero" width={500} height={500} />
       {/* <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
       <DialogRadix />

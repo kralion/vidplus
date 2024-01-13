@@ -23,7 +23,7 @@ export default function RootLayout({
         <Theme accentColor="iris" grayColor="sand" radius="full" scaling="95%">
           <TRPCReactProvider cookies={cookies().toString()}>
             <NavBar />
-            <hr className="mx-20 rounded-full border-[1px] border-[#6704E7]" />
+            <hr className="mx-24 rounded-full border-[1px] border-[#6704E7]" />
             {children}
           </TRPCReactProvider>
         </Theme>
