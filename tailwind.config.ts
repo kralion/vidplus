@@ -1,12 +1,17 @@
 import { type Config } from "tailwindcss";
-import { fontFamily } from "tailwindcss/defaultTheme";
 
 export default {
   content: ["./src/**/*.tsx"],
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-sans)", ...fontFamily.sans],
+        Roboto: ["Roboto", "sans-serif"],
+      },
+      colors: {
+        background: "#7204FD",
+        primary: "#150030",
+        secondary: "#FF603D",
+        tertiary: "#F8E439",
       },
     },
   },

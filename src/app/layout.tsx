@@ -1,16 +1,10 @@
 import "@/styles/globals.css";
 import "@radix-ui/themes/styles.css";
 
-import { Inter } from "next/font/google";
 import { cookies } from "next/headers";
 import { TRPCReactProvider } from "@/trpc/react";
 import { Theme } from "@radix-ui/themes";
 import NavBar from "@/components/layout/navbar";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-sans",
-});
 
 export const metadata = {
   title: "Create T3 App",
@@ -25,10 +19,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`font-sans ${inter.variable}`}>
-        <Theme accentColor="blue" grayColor="sand" radius="full" scaling="95%">
+      <body className="font-Roboto bg-background">
+        <Theme accentColor="iris" grayColor="sand" radius="full" scaling="95%">
           <TRPCReactProvider cookies={cookies().toString()}>
             <NavBar />
+            <hr className="mx-20 rounded-full border-[1px] border-[#6704E7]" />
             {children}
           </TRPCReactProvider>
         </Theme>

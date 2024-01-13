@@ -6,15 +6,30 @@ import { api } from "@/trpc/server";
 import { Flex, Text, Button, Box, Grid } from "@radix-ui/themes";
 import { DialogRadix } from "./_components/dialog";
 import { PaginationFloatUI } from "./_components/pagination";
-
+import HeroAsset from "@/assets/images/meeting.png";
+import Image from "next/image";
 export default async function Home() {
   const hello = await api.post.hello.query({ text: "from tRPC" });
   const session = await getServerAuthSession();
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#6d025b] to-[#2c1525] text-white">
+    <main className="flex  items-center justify-center gap-2 text-white">
+      <div className="w-1/2">
+        <Text className="text-3xl font-extrabold tracking-tight sm:text-[5rem]">
+          Customize Meetings <br />
+          <span className="text-[hsl(280,100%,70%)]">Your Way</span>
+        </Text>
+        <Text className="text-3xl font-extrabold tracking-tight sm:text-[5rem]">
+          <span className="text-[hsl(280,100%,70%)]">Vid</span> Plus
+        </Text>
+        <Text className="text-3xl font-extrabold tracking-tight sm:text-[5rem]"></Text>
+        <Link href="/about">
+          <Button variant="solid">About</Button>
+        </Link>
+      </div>
+      <Image src={HeroAsset} alt="hero" width={500} height={500} />
+      {/* <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
       <DialogRadix />
-      <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
         <Grid columns="3" gap="3">
           <Flex direction="column" gap="3">
             <Box height="5">
@@ -40,30 +55,11 @@ export default async function Home() {
         <h1 className="text-5xl font-extrabold tracking-tight sm:text-[5rem]">
           Vid <span className="text-[hsl(280,100%,70%)]">Plus</span>
         </h1>
-        <Flex direction="column" gap="2">
-          <Button className="cursor-pointer">Let&apos;s go</Button>
-        </Flex>
-        <div className="flex flex-col items-center gap-2">
-          <p className="text-2xl text-white">
-            {hello ? hello.greeting : "Loading tRPC query..."}
-          </p>
-
-          <div className="flex flex-col items-center justify-center gap-4">
-            <p className="text-center text-2xl text-white">
-              {session && <span>Logged in as {session.user?.name}</span>}
-            </p>
-            <Link
-              href={session ? "/api/auth/signout" : "/api/auth/signin"}
-              className="rounded-full bg-white/10 px-10 py-3 font-semibold no-underline transition hover:bg-white/20"
-            >
-              {session ? "Sign out" : "Sign in"}
-            </Link>
-          </div>
-        </div>
+        <Flex direction="column" gap="2"></Flex>
 
         <CrudShowcase />
         <PaginationFloatUI />
-      </div>
+      </div> */}
     </main>
   );
 }
