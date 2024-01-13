@@ -1,6 +1,6 @@
 import "@/styles/globals.css";
 import "@radix-ui/themes/styles.css";
-
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { cookies } from "next/headers";
 import { TRPCReactProvider } from "@/trpc/react";
 import { Theme } from "@radix-ui/themes";
@@ -19,7 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="font-Roboto bg-background">
+      <body className="bg-background font-Roboto">
         <Theme accentColor="iris" grayColor="sand" radius="full" scaling="95%">
           <TRPCReactProvider cookies={cookies().toString()}>
             <NavBar />
