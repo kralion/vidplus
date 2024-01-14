@@ -105,7 +105,7 @@ export default async function Home() {
           tag="testimonials"
           title="I am just loving the UI of Vidplus"
         >
-          <video className="rounded-xl" width="200" height="200" controls>
+          <video className="rounded-xl" width="220" height="220" controls>
             <source
               src="https://harmony.videvo.net/videvo_files/video/partners0222/small_watermarked/Untitled00837788_FPpreview.mp4"
               type="video/mp4"

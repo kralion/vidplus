@@ -12,7 +12,7 @@ export default function ContentCard({
   tag: string;
 }) {
   return (
-    <Flex className="p-4 text-black" direction="row" gap="4">
+    <Flex className="p-4 text-black" align="start" direction="row" gap="4">
       {children}
       <Flex direction="column" align="start" gap="3">
         <Text className="text-md font-semibold uppercase text-slate-500">
