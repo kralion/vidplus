@@ -3,6 +3,7 @@ import HeroAsset from "@/assets/images/meeting.png";
 import ContentCard from "@/components/dashboard/card";
 import { getServerAuthSession } from "@/server/auth";
 import { api } from "@/trpc/server";
+import "animate.css";
 import { CheckCircledIcon } from "@radix-ui/react-icons";
 import { Button, Flex, Grid, Text } from "@radix-ui/themes";
 import Image from "next/image";
@@ -83,7 +84,13 @@ export default async function Home() {
           </Flex>
         </Flex>
 
-        <Image src={HeroAsset} alt="hero" width={500} height={500} />
+        <Image
+          className="animate__animated animate__fadeInRight "
+          src={HeroAsset}
+          alt="hero"
+          width={500}
+          height={500}
+        />
       </Flex>
       <Flex className="bg-white px-24 py-10" gap="4" justify="between">
         <ContentCard tag="blog" title="Why Vidplus growing rapidly in USA">
