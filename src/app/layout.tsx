@@ -19,11 +19,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="bg-background font-Roboto">
+      <body className="bg-gradient-to-br from-background via-indigo-500 to-purple-500 font-Roboto">
         <Theme accentColor="iris" grayColor="sand" radius="full" scaling="95%">
           <TRPCReactProvider cookies={cookies().toString()}>
             <NavBar />
-            <hr className="mx-24 rounded-full border-[1px] border-[#6704E7]" />
+            <hr className="mx-24 rounded-full border-[1px] border-indigo-700" />
             {children}
           </TRPCReactProvider>
         </Theme>

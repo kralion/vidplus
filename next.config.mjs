@@ -7,7 +7,7 @@ await import("./src/env.mjs");
 /** @type {import("next").NextConfig} */
 const config = {
   images: {
-    domains: ["cdn-icons-png.flaticon.com"],
+    domains: ["cdn-icons-png.flaticon.com", "img.freepik.com"],
   },
 };
 

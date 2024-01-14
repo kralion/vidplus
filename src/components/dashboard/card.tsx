@@ -1,32 +1,28 @@
-import { Card, Flex, Avatar, Box, Text, Checkbox } from "@radix-ui/themes";
+import { Button, Card, Flex, Text } from "@radix-ui/themes";
 import React from "react";
+import { ChevronRightIcon } from "@radix-ui/react-icons";
 
-export default function UserCard() {
+export default function ContentCard({
+  children,
+  title,
+  tag,
+}: {
+  children: React.ReactNode;
+  title: string;
+  tag: string;
+}) {
   return (
-    <div>
-      <Card style={{ maxWidth: 240 }}>
-        <Flex gap="3" align="center">
-          <Avatar
-            size="3"
-            src="https://images.unsplash.com/photo-1607346256330-dee7af15f7c5?&w=64&h=64&dpr=2&q=70&crop=focalpoint&fp-x=0.67&fp-y=0.5&fp-z=1.4&fit=crop"
-            radius="full"
-            fallback="T"
-          />
-          <Box>
-            <Text as="div" size="2" weight="bold">
-              Teodros Girmay
-            </Text>
-            <Text as="div" size="2" color="gray">
-              Engineering
-            </Text>
-          </Box>
-        </Flex>
-      </Card>
-      <Text as="label" size="2">
-        <Flex gap="2">
-          <Checkbox defaultChecked /> Agree to Terms and Conditions
-        </Flex>
-      </Text>
-    </div>
+    <Flex className="p-4 text-black" direction="row" gap="4">
+      {children}
+      <Flex direction="column" align="start" gap="3">
+        <Text className="text-md font-semibold uppercase text-slate-500">
+          #{tag}
+        </Text>
+        <Text className="font-semibold">{title}</Text>
+        <Button variant="ghost" className="font-semibold" color="orange">
+          Learn More <ChevronRightIcon />
+        </Button>
+      </Flex>
+    </Flex>
   );
 }
