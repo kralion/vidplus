@@ -10,7 +10,7 @@ export default function Page() {
         size="9"
         weight="bold"
       >
-        Pricing
+        Windows
       </Heading>
     </div>
   );

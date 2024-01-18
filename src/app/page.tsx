@@ -12,7 +12,7 @@ export default async function Home() {
   const session = await getServerAuthSession();
 
   return (
-    <main className="text-white">
+    <main className="bg-gradient-to-br from-background to-indigo-600 text-white">
       <Flex direction="row" className="p-24" justify="center" align="center">
         <Flex direction="column" gap="6" className="w-1/2">
           <Text className=" text-6xl font-extrabold tracking-tight">
