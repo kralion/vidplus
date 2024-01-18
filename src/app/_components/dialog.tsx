@@ -1,5 +1,6 @@
 "use client";
 import * as Dialog from "@radix-ui/react-dialog";
+import Link from "next/link";
 
 export const DialogRadix = () => {
   return (
@@ -37,17 +38,21 @@ export const DialogRadix = () => {
             </Dialog.Description>
             <div className="mt-3 items-center gap-2 text-sm sm:flex">
               <Dialog.Close asChild>
-                <button className="mt-2 w-full flex-1 rounded-md bg-indigo-600 p-2.5 text-white outline-none ring-indigo-600 ring-offset-2 focus:ring-2">
-                  Dashboard
-                </button>
+                <Link
+                  href="/dashboard"
+                  className="mt-2 w-full flex-1 rounded-md bg-indigo-600 p-2.5 text-white outline-none ring-indigo-600 ring-offset-2 focus:ring-2"
+                >
+                  Go to VidPlus
+                </Link>
               </Dialog.Close>
               <Dialog.Close asChild>
-                <button
+                <Link
+                  href="/docs"
                   className="mt-2 w-full flex-1 rounded-md border p-2.5 text-gray-800 outline-none ring-indigo-600 ring-offset-2 focus:ring-2"
                   aria-label="Close"
                 >
-                  Undo
-                </button>
+                  Docs
+                </Link>
               </Dialog.Close>
             </div>
           </div>

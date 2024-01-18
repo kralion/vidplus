@@ -4,7 +4,6 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { cookies } from "next/headers";
 import { TRPCReactProvider } from "@/trpc/react";
 import { Theme } from "@radix-ui/themes";
-import NavBar from "@/components/layout/navbar";
 
 export const metadata = {
   title: "Create T3 App",
@@ -22,10 +21,7 @@ export default function RootLayout({
       <body className=" font-Roboto">
         <Theme accentColor="iris" grayColor="sand" radius="full" scaling="95%">
           <TRPCReactProvider cookies={cookies().toString()}>
-            <NavBar />
-            <div className="flex min-h-screen flex-col items-center justify-center py-2">
-              {children}
-            </div>
+            {children}
           </TRPCReactProvider>
         </Theme>
       </body>

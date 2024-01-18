@@ -16,38 +16,41 @@ const NavLinks: TNavLinks = [
   {
     title: "Why Vid Plus",
     options: [
-      { title: "Comparison", href: "/why-vid-plus/comparison" },
-      { title: "Benchmark", href: "/why-vid-plus/benchmark" },
+      { title: "Comparison", href: "/docs/why-vid-plus/comparison" },
+      { title: "Benchmark", href: "/docs/why-vid-plus/benchmark" },
     ],
   },
   {
     title: "Features",
     options: [
-      { title: "Tech Stack", href: "/features/tech-stack" },
-      { title: "Security", href: "/features/security" },
-      { title: "Data & Privacy", href: "/features/data-privacy" },
-      { title: "Reliability", href: "/features/reliability" },
+      { title: "Tech Stack", href: "/docs/features/tech-stack" },
+      { title: "Security", href: "/docs/features/security" },
+      { title: "Data & Privacy", href: "/docs/features/data-privacy" },
+      { title: "Reliability", href: "/docs/features/reliability" },
     ],
   },
   {
     title: "Platforms",
     options: [
-      { title: "iOS", href: "/platforms/ios" },
-      { title: "Android", href: "/platforms/android" },
-      { title: "OSX", href: "/platforms/osx" },
-      { title: "Windows", href: "/platforms/windows" },
+      { title: "iOS", href: "/docs/platforms/ios" },
+      { title: "Android", href: "/docs/platforms/android" },
+      { title: "OSX", href: "/docs/platforms/osx" },
+      { title: "Windows", href: "/docs/platforms/windows" },
     ],
   },
   {
     title: "Pricing",
-    mainHref: "/pricing",
+    mainHref: "/docs/pricing",
   },
 ];
 
 export default function NavBar() {
   return (
     <section className="fixed z-10 flex w-full items-center justify-between bg-indigo-600 px-24 py-8 text-white shadow-md backdrop-blur-xl">
-      <Link href="/" className="flex gap-2 hover:opacity-80 active:opacity-60">
+      <Link
+        href="/docs"
+        className="flex gap-2 hover:opacity-80 active:opacity-60"
+      >
         <Image
           src="https://cdn-icons-png.flaticon.com/128/922/922672.png"
           width={30}
@@ -85,19 +88,23 @@ export default function NavBar() {
         ))}
       </div>
       <Flex align="center" gap="6">
-        <Button className={style.button} variant="ghost">
-          Log In
-        </Button>
-        <Button
-          style={{
-            padding: "20px 30px",
-            boxShadow: "0 0 10px rgba(0,0,0,0.2)",
-          }}
-          size="3"
-          variant="solid"
-        >
-          Free Trial
-        </Button>
+        <Link href="/login">
+          <Button className={style.button} variant="ghost">
+            Log In
+          </Button>
+        </Link>
+        <Link href="/dashboard">
+          <Button
+            style={{
+              padding: "20px 30px",
+              boxShadow: "0 0 10px rgba(0,0,0,0.2)",
+            }}
+            size="3"
+            variant="solid"
+          >
+            Free Trial
+          </Button>
+        </Link>
       </Flex>
     </section>
   );
