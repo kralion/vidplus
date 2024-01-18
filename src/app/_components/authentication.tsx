@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import "animate.css";
 
 export default function AuthenticationFloatUI() {
   return (
@@ -7,11 +8,11 @@ export default function AuthenticationFloatUI() {
       <div className="w-full max-w-sm space-y-8 text-gray-600">
         <div className="text-center">
           <Image
-            src="https://floatui.com/logo.svg"
-            width={150}
-            height={150}
-            alt="Float UI"
-            className="mx-auto"
+            src="https://cdn-icons-png.flaticon.com/128/6268/6268670.png"
+            width={100}
+            height={100}
+            alt="VidPlus"
+            className="animate__animated animate__fadeIn animate__delay-0.5s mx-auto rounded-full  border-2 border-pink-400 p-2"
           />
           <div className="mt-5 space-y-2">
             <h3 className="text-2xl font-bold text-gray-800 sm:text-3xl">

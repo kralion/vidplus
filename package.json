@@ -23,7 +23,6 @@
     "@trpc/next": "^10.37.1",
     "@trpc/react-query": "^10.37.1",
     "@trpc/server": "^10.37.1",
-    "@vercel/speed-insights": "^1.0.3",
     "animate.css": "^4.1.1",
     "bcrypt": "^5.1.1",
     "clsx": "^2.0.0",
