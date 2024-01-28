@@ -1,43 +1,41 @@
 import { CreatePost } from "@/app/_components/create-post";
 import { getServerAuthSession } from "@/server/auth";
 import { api } from "@/trpc/server";
-import { Box, Flex, Grid } from "@radix-ui/themes";
+import { ArrowRightIcon } from "@radix-ui/react-icons";
+import { Button, Flex } from "@radix-ui/themes";
 import "animate.css";
-import { DialogRadix } from "./_components/dialog";
+import Image from "next/image";
+import Link from "next/link";
 export default async function Home() {
   const hello = await api.post.hello.query({ text: "from tRPC" });
   const session = await getServerAuthSession();
 
   return (
-    <main className="bg-gradient-to-br from-background to-indigo-600 text-white">
-      <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
-        <DialogRadix />
-        <Grid columns="3" gap="3">
-          <Flex direction="column" gap="3">
-            <Box height="5">
-              <div className="h-10 w-10 bg-purple-100" />
-            </Box>
-            <Box height="7">
-              <div className="h-10 w-10 bg-purple-100" />
-            </Box>
-            <Box height="9">
-              <div className="h-10 w-10 bg-purple-100" />
-            </Box>
-          </Flex>
-
-          <Flex direction="column" gap="3">
-            <Box grow="1">
-              <div className="h-10 w-10 bg-purple-100" />
-            </Box>
-            <Box height="6">
-              <div className="h-10 w-10 bg-purple-100" />
-            </Box>
-          </Flex>
-        </Grid>
-        <h1 className="text-5xl font-extrabold tracking-tight sm:text-[5rem]">
-          Vid <span className="text-[hsl(280,100%,70%)]">Plus</span>
+    <main>
+      <div className="flex h-screen flex-col items-center justify-center gap-12 bg-white/40  text-white ">
+        <Image
+          src="https://cdn-icons-png.flaticon.com/128/6268/6268670.png"
+          width={100}
+          height={100}
+          alt="VidPlus"
+          className="animate__animated animate__fadeIn animate__delay-0.5s  rounded-full  border-2 border-pink-400 p-2"
+        />
+        <h1 className="text-5xl font-extrabold tracking-tight text-indigo-400 sm:text-[5rem]">
+          Vid<span className="text-[hsl(280,100%,70%)]">Plus</span>
         </h1>
-        <Flex direction="column" gap="2"></Flex>
+        <Flex className="gap-4">
+          <Link href="/docs">
+            <Button variant="outline" size="4">
+              Demo
+            </Button>
+          </Link>
+          <Link href="/login">
+            <Button size="4" className="group">
+              <ArrowRightIcon className="h-6 w-6 duration-300 group-hover:ml-4" />
+              Get Started
+            </Button>
+          </Link>
+        </Flex>
 
         <CrudShowcase />
       </div>

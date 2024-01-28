@@ -1,6 +1,6 @@
 import React from "react";
-import AuthenticationFloatUI from "../../../_components/authentication";
+import LoginForm from "../../../_components/login-form";
 
 export default function Page() {
-  return <AuthenticationFloatUI />;
+  return <LoginForm />;
 }

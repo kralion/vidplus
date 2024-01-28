@@ -1,39 +1,50 @@
 "use client";
 import Image from "next/image";
 import "animate.css";
+import Link from "next/link";
 
-export default function AuthenticationFloatUI() {
+export default function LoginForm() {
   return (
     <main className="flex h-screen w-full flex-col items-center justify-center px-4">
-      <div className="w-full max-w-sm space-y-8 text-gray-600">
+      <div className="w-full max-w-sm space-y-6 text-gray-600">
         <div className="text-center">
-          <Image
-            src="https://cdn-icons-png.flaticon.com/128/6268/6268670.png"
-            width={100}
-            height={100}
-            alt="VidPlus"
-            className="animate__animated animate__fadeIn animate__delay-0.5s mx-auto rounded-full  border-2 border-pink-400 p-2"
-          />
+          <Link href="/">
+            <Image
+              src="https://cdn-icons-png.flaticon.com/128/6268/6268670.png"
+              width={100}
+              height={100}
+              alt="VidPlus"
+              className="animate__animated animate__fadeIn animate__delay-0.5s mx-auto rounded-full border-2  border-pink-400  p-2 hover:bg-zinc-100 hover:shadow-lg"
+            />
+          </Link>
           <div className="mt-5 space-y-2">
             <h3 className="text-2xl font-bold text-gray-800 sm:text-3xl">
               Log in to your account
             </h3>
             <p className="">
               Don&apos;t have an account?{" "}
-              <a
-                href="javascript:void(0)"
+              <Link
                 className="font-medium text-indigo-600 hover:text-indigo-500"
+                href="/sign-up"
               >
                 Sign up
-              </a>
+              </Link>
             </p>
           </div>
         </div>
-        <form onSubmit={(e) => e.preventDefault()}>
+        <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
           <div>
             <label className="font-medium">Email</label>
             <input
               type="email"
+              required
+              className="mt-2 w-full rounded-lg border bg-transparent px-3 py-2 text-gray-500 shadow-sm outline-none focus:border-indigo-600"
+            />
+          </div>
+          <div>
+            <label className="font-medium">Password</label>
+            <input
+              type="password"
               required
               className="mt-2 w-full rounded-lg border bg-transparent px-3 py-2 text-gray-500 shadow-sm outline-none focus:border-indigo-600"
             />

@@ -48,7 +48,7 @@ export default function NavBar() {
   return (
     <section className="fixed z-10 flex w-full items-center justify-between bg-indigo-600 px-24 py-4 text-white shadow-md backdrop-blur-xl">
       <Link
-        href="/docs"
+        href="/"
         className="flex items-center gap-1 hover:opacity-80 active:opacity-60"
       >
         <Image
