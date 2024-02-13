@@ -4,14 +4,17 @@ import "animate.css";
 
 export default function Page() {
   return (
-    <div>
+    <div className="flex items-center gap-2">
       <Heading
         className="animate__animated animate__fadeInLeft "
         size="9"
         weight="bold"
       >
-        Realiability
+        Reliability
       </Heading>
+      <span className="animate-in fade-in-50 duration-400 rounded-full border border-purple-500 bg-gradient-to-t from-purple-600 to-indigo-600 px-2 text-white">
+        Comming Soon
+      </span>
     </div>
   );
 }
