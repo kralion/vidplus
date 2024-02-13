@@ -87,13 +87,16 @@ export default function NavBar() {
           </DropdownMenu.Root>
         ))}
       </div>
-      <Flex align="center" gap="6">
+      <Flex align="center" gap="3">
         <Link href="/login">
-          <Button className={style.button} variant="ghost">
+          <Button
+            className={` hover:opacity-70 ${style.button}`}
+            variant="soft"
+          >
             Log In
           </Button>
         </Link>
-        <Link href="/dashboard">
+        <Link href="/login">
           <Button
             style={{
               padding: "20px 30px",

@@ -2,16 +2,41 @@
 import Image from "next/image";
 import "animate.css";
 import Link from "next/link";
+import { SignInSchema } from "@/schemas/auth";
+import { InfoCircledIcon, TokensIcon } from "@radix-ui/react-icons";
+import type { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { useState } from "react";
 
 export default function LoginForm() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<z.infer<typeof SignInSchema>>({
+    resolver: zodResolver(SignInSchema),
+  });
+
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const onSubmit = (data: z.infer<typeof SignInSchema>) => {
+    setIsLoading(true);
+    console.log(data);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+  };
+
   return (
-    <main className="flex h-screen w-full flex-col items-center justify-center px-4">
+    <main className="animate-in zoom-in-50 flex h-screen w-full flex-col items-center justify-center px-4 duration-300">
       <div className="w-full max-w-sm space-y-6 text-gray-600">
         <div className="text-center">
           <Link href="/">
             <Image
               src="https://cdn-icons-png.flaticon.com/128/6268/6268670.png"
               width={100}
+              priority
               height={100}
               alt="VidPlus"
               className="animate__animated animate__fadeIn animate__delay-0.5s mx-auto rounded-full border-2  border-pink-400  p-2 hover:bg-zinc-100 hover:shadow-lg"
@@ -32,25 +57,47 @@ export default function LoginForm() {
             </p>
           </div>
         </div>
-        <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+        <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
           <div>
             <label className="font-medium">Email</label>
             <input
+              {...register("email")}
               type="email"
               required
               className="mt-2 w-full rounded-lg border bg-transparent px-3 py-2 text-gray-500 shadow-sm outline-none focus:border-indigo-600"
             />
           </div>
+          {errors.email && (
+            <p className="flex items-center gap-1 text-xs text-red-500">
+              <InfoCircledIcon className="h-4 w-4" />
+              {errors.email.message}
+            </p>
+          )}
           <div>
             <label className="font-medium">Password</label>
             <input
+              {...register("password")}
               type="password"
               required
               className="mt-2 w-full rounded-lg border bg-transparent px-3 py-2 text-gray-500 shadow-sm outline-none focus:border-indigo-600"
             />
           </div>
-          <button className="mt-4 w-full rounded-lg bg-indigo-600 px-4 py-2 font-medium text-white duration-150 hover:bg-indigo-500 active:bg-indigo-600">
-            Sign in
+          {errors.password && (
+            <p className="flex items-center gap-1 text-xs text-red-500">
+              <InfoCircledIcon className="h-4 w-4" />
+              {errors.password.message}
+            </p>
+          )}
+          <button
+            type="submit"
+            disabled={isLoading}
+            className="text-cent mt-4 flex w-full justify-center rounded-lg bg-indigo-600 px-4 py-2 font-medium text-white duration-150 hover:bg-indigo-500 active:bg-indigo-600"
+          >
+            {isLoading ? (
+              <TokensIcon className="h-5 w-5 animate-spin opacity-70" />
+            ) : (
+              "Log in"
+            )}
           </button>
         </form>
         <div className="relative">
@@ -67,7 +114,7 @@ export default function LoginForm() {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <g clip-path="url(#clip0_17_40)">
+              <g clipPath="url(#clip0_17_40)">
                 <path
                   d="M47.532 24.5528C47.532 22.9214 47.3997 21.2811 47.1175 19.6761H24.48V28.9181H37.4434C36.9055 31.8988 35.177 34.5356 32.6461 36.2111V42.2078H40.3801C44.9217 38.0278 47.532 31.8547 47.532 24.5528Z"
                   fill="#4285F4"
@@ -114,10 +161,10 @@ export default function LoginForm() {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <g clip-path="url(#clip0_910_21)">
+              <g clipPath="url(#clip0_910_21)">
                 <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
                   d="M24.0005 1C18.303 1.00296 12.7923 3.02092 8.45374 6.69305C4.11521 10.3652 1.23181 15.452 0.319089 21.044C-0.593628 26.636 0.523853 32.3684 3.47174 37.2164C6.41963 42.0643 11.0057 45.7115 16.4099 47.5059C17.6021 47.7272 18.0512 46.9883 18.0512 46.36C18.0512 45.7317 18.0273 43.91 18.0194 41.9184C11.3428 43.3608 9.93197 39.101 9.93197 39.101C8.84305 36.3349 7.26927 35.6078 7.26927 35.6078C5.09143 34.1299 7.43223 34.1576 7.43223 34.1576C9.84455 34.3275 11.1123 36.6194 11.1123 36.6194C13.2504 40.2667 16.7278 39.2116 18.0949 38.5952C18.3095 37.0501 18.9335 35.999 19.621 35.4023C14.2877 34.8017 8.68408 32.7548 8.68408 23.6108C8.65102 21.2394 9.53605 18.9461 11.156 17.2054C10.9096 16.6047 10.087 14.1785 11.3905 10.8829C11.3905 10.8829 13.4054 10.2427 17.9916 13.3289C21.9253 12.2592 26.0757 12.2592 30.0095 13.3289C34.5917 10.2427 36.6026 10.8829 36.6026 10.8829C37.9101 14.1706 37.0875 16.5968 36.8411 17.2054C38.4662 18.9464 39.353 21.2437 39.317 23.6187C39.317 32.7824 33.7015 34.8017 28.3602 35.3905C29.2186 36.1334 29.9856 37.5836 29.9856 39.8122C29.9856 43.0051 29.9578 45.5736 29.9578 46.36C29.9578 46.9962 30.391 47.7391 31.6071 47.5059C37.0119 45.7113 41.5984 42.0634 44.5462 37.2147C47.4941 32.3659 48.611 26.6326 47.6972 21.0401C46.7835 15.4476 43.8986 10.3607 39.5587 6.68921C35.2187 3.01771 29.7067 1.00108 24.0085 1H24.0005Z"
                   fill="#191717"
                 />
@@ -160,12 +207,9 @@ export default function LoginForm() {
           </button>
         </div>
         <div className="text-center">
-          <a
-            href="javascript:void(0)"
-            className="text-indigo-600 hover:text-indigo-500"
-          >
+          <Link href="#" className="text-indigo-600 hover:text-indigo-500">
             Forgot password?
-          </a>
+          </Link>
         </div>
       </div>
     </main>

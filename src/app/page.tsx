@@ -30,9 +30,9 @@ export default async function Home() {
             </Button>
           </Link>
           <Link href="/login">
-            <Button size="4" className="group">
-              <ArrowRightIcon className="h-6 w-6 duration-300 group-hover:ml-4" />
+            <Button size="4" className="group cursor-pointer">
               Get Started
+              <ArrowRightIcon className="h-4 w-4 duration-300 group-hover:translate-x-2" />
             </Button>
           </Link>
         </Flex>
