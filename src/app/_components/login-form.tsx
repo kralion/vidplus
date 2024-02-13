@@ -39,7 +39,7 @@ export default function LoginForm() {
               priority
               height={100}
               alt="VidPlus"
-              className="animate__animated animate__fadeIn animate__delay-0.5s mx-auto rounded-full border-2  border-pink-400  p-2 hover:bg-zinc-100 hover:shadow-lg"
+              className="animate__animated animate__fadeIn animate__delay-0.5s mx-auto cursor-pointer rounded-full  border-2  border-pink-400 p-2 hover:bg-zinc-100 hover:shadow-lg active:opacity-70"
             />
           </Link>
           <div className="mt-5 space-y-2">
