@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Page() {
   return (
-    <main className="animate-in zoom-in-50 flex h-screen w-full flex-col items-center justify-center px-4">
+    <main className="flex h-screen w-full flex-col items-center justify-center px-4 animate-in fade-in-0">
       <div className="w-full max-w-sm  space-y-6 text-gray-600">
         <Link href="/">
           <Image

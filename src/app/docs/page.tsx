@@ -78,6 +78,7 @@ export default async function Home() {
                 padding: "20px 30px",
               }}
               size="4"
+              radius="full"
             >
               Get Started
             </Button>

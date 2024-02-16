@@ -1,13 +1,18 @@
 "use client";
-import Image from "next/image";
-import "animate.css";
-import Link from "next/link";
 import { SignInSchema } from "@/schemas/auth";
-import { InfoCircledIcon, TokensIcon } from "@radix-ui/react-icons";
-import type { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
+import {
+  EnvelopeClosedIcon,
+  InfoCircledIcon,
+  LockClosedIcon,
+  TokensIcon,
+} from "@radix-ui/react-icons";
+import { AlertDialog, Flex, TextField, Button, Link } from "@radix-ui/themes";
+import "animate.css";
+import Image from "next/image";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
+import type { z } from "zod";
 
 export default function LoginForm() {
   const {
@@ -29,7 +34,7 @@ export default function LoginForm() {
   };
 
   return (
-    <main className="animate-in zoom-in-50 flex h-screen w-full flex-col items-center justify-center px-4 duration-300">
+    <main className="flex h-screen w-full flex-col items-center justify-center px-4 duration-300 animate-in fade-in-0">
       <div className="w-full max-w-sm space-y-6 text-gray-600">
         <div className="text-center">
           <Link href="/">
@@ -58,30 +63,36 @@ export default function LoginForm() {
           </div>
         </div>
         <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
-          <div>
+          <div className="space-y-2">
             <label className="font-medium">Email</label>
-            <input
-              {...register("email")}
-              type="email"
-              required
-              className="mt-2 w-full rounded-lg border bg-transparent px-3 py-2 text-gray-500 shadow-sm outline-none focus:border-indigo-600"
-            />
+            <TextField.Root className=" px-1">
+              <TextField.Slot>
+                <EnvelopeClosedIcon height="16" width="16" />
+              </TextField.Slot>
+              <TextField.Input
+                size="3"
+                {...register("email")}
+                placeholder="jhondoe@vidplus.com"
+              />
+            </TextField.Root>
           </div>
+
           {errors.email && (
             <p className="flex items-center gap-1 text-xs text-red-500">
               <InfoCircledIcon className="h-4 w-4" />
               {errors.email.message}
             </p>
           )}
-          <div>
+          <div className="space-y-2">
             <label className="font-medium">Password</label>
-            <input
-              {...register("password")}
-              type="password"
-              required
-              className="mt-2 w-full rounded-lg border bg-transparent px-3 py-2 text-gray-500 shadow-sm outline-none focus:border-indigo-600"
-            />
+            <TextField.Root className="px-1">
+              <TextField.Slot>
+                <LockClosedIcon height="16" width="16" />
+              </TextField.Slot>
+              <TextField.Input size="3" {...register("password")} />
+            </TextField.Root>
           </div>
+
           {errors.password && (
             <p className="flex items-center gap-1 text-xs text-red-500">
               <InfoCircledIcon className="h-4 w-4" />
@@ -206,11 +217,36 @@ export default function LoginForm() {
             Continue with Github
           </button>
         </div>
-        <div className="text-center">
-          <Link href="#" className="text-indigo-600 hover:text-indigo-500">
-            Forgot password?
-          </Link>
-        </div>
+        <AlertDialog.Root>
+          <AlertDialog.Trigger>
+            <Link
+              color="indigo"
+              className="flex w-full justify-center text-center text-sm"
+            >
+              Forgot password?
+            </Link>
+          </AlertDialog.Trigger>
+          <AlertDialog.Content style={{ maxWidth: 450 }}>
+            <AlertDialog.Title>Password Recovery</AlertDialog.Title>
+            <AlertDialog.Description size="2">
+              We will send you an email to reset your password to the email
+              registered in your account.
+            </AlertDialog.Description>
+
+            <Flex gap="3" mt="4" justify="end">
+              <AlertDialog.Cancel>
+                <Button variant="soft" color="gray">
+                  Cancel
+                </Button>
+              </AlertDialog.Cancel>
+              <AlertDialog.Action>
+                <Button variant="solid" color="red">
+                  Send
+                </Button>
+              </AlertDialog.Action>
+            </Flex>
+          </AlertDialog.Content>
+        </AlertDialog.Root>
       </div>
     </main>
   );

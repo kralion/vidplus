@@ -103,6 +103,7 @@ export default function NavBar() {
               boxShadow: "0 0 10px rgba(0,0,0,0.2)",
             }}
             size="3"
+            radius="full"
             variant="solid"
           >
             Free Trial

@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className=" font-Roboto">
-        <Theme accentColor="iris" grayColor="sand" radius="full" scaling="95%">
+        <Theme accentColor="iris" grayColor="sand" radius="large" scaling="95%">
           <TRPCReactProvider cookies={cookies().toString()}>
             {children}
           </TRPCReactProvider>
