@@ -13,6 +13,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import type { z } from "zod";
+import { useRouter } from "next/navigation";
 
 export default function LoginForm() {
   const {
@@ -22,6 +23,7 @@ export default function LoginForm() {
   } = useForm<z.infer<typeof SignInSchema>>({
     resolver: zodResolver(SignInSchema),
   });
+  const router = useRouter();
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -31,6 +33,7 @@ export default function LoginForm() {
     setTimeout(() => {
       setIsLoading(false);
     }, 2000);
+    router.push("/dashboard");
   };
 
   return (
@@ -89,7 +92,11 @@ export default function LoginForm() {
               <TextField.Slot>
                 <LockClosedIcon height="16" width="16" />
               </TextField.Slot>
-              <TextField.Input size="3" {...register("password")} />
+              <TextField.Input
+                type="password"
+                size="3"
+                {...register("password")}
+              />
             </TextField.Root>
           </div>
 

@@ -2,3 +2,51 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Add webkit style for scroll bar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #6366f1;
+  border-radius: 4px;
+}
+
+/* Add cool style using indigo-500 color in HEX code */
+.my-cool-style {
+  color: #6366f1;
+  background-color: #6366f1;
+}
+
+/* Add rounding to the scroll-thumb */
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+}
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #4f46e5;
+  border-radius: 4px;
+}
+
+/* Add cool style using indigo-500 color in HEX code */
+.my-cool-style {
+  color: #6366f1;
+  background-color: #4f46e5;
+}
+
+/* Add rounding to the scroll-thumb */
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+}

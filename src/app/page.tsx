@@ -27,9 +27,9 @@ export default async function Home() {
           width={100}
           height={100}
           alt="VidPlus"
-          className="animate__animated animate__fadeIn animate__delay-0.5s rounded-full  border-2 border-pink-400    p-2  "
+          className="animate__animated animate__fadeIn animate__delay-0.5s rounded-full  border-2 border-pink-500 p-2  "
         />
-        <h1 className="text-5xl font-extrabold tracking-tight text-indigo-300 sm:text-[5rem]">
+        <h1 className="text-5xl font-extrabold tracking-tight text-indigo-500 sm:text-[5rem]">
           Vid<span className="text-white">Plus</span>
         </h1>
         <Flex className="gap-4">
