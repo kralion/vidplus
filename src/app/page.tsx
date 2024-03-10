@@ -23,15 +23,21 @@ export default async function Home() {
         className="flex h-screen flex-col items-center justify-center gap-12   text-white "
       >
         <Image
-          src="https://cdn-icons-png.flaticon.com/128/6268/6268670.png"
+          src="https://cdn-icons-png.flaticon.com/128/3845/3845856.png"
           width={100}
           height={100}
           alt="VidPlus"
-          className="animate__animated animate__fadeIn animate__delay-0.5s rounded-full  border-2 border-pink-500 p-2  "
+          className="animate__animated animate__fadeIn animate__delay-0.5s rounded-full       "
         />
-        <h1 className="text-5xl font-extrabold tracking-tight text-indigo-500 sm:text-[5rem]">
-          Vid<span className="text-white">Plus</span>
-        </h1>
+        <Flex direction="column" className="gap-4" align="center">
+          <h1 className="text-5xl font-extrabold tracking-tight text-pink-800 sm:text-[5rem]">
+            Vid<span className="text-white">Plus</span>
+          </h1>
+          <span className="text-md mx-auto w-2/3 text-center  font-semibold">
+            A platform for creators to share their knowledge and expertise—with
+            seamless video and audio capabilities.
+          </span>
+        </Flex>
         <Flex className="gap-4">
           <Link href="/docs">
             <Button variant="classic" size="4">

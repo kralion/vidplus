@@ -4,20 +4,20 @@ import Link from "next/link";
 
 export default function Page() {
   return (
-    <main className="flex h-screen w-full flex-col items-center justify-center px-4 animate-in fade-in-0">
+    <main className="m-4 flex h-screen w-full flex-col items-center justify-center animate-in fade-in-0">
       <div className="w-full max-w-sm  space-y-6 text-gray-600">
         <Link href="/">
           <Image
-            src="https://cdn-icons-png.flaticon.com/128/6268/6268670.png"
+            src="https://cdn-icons-png.flaticon.com/128/3845/3845856.png"
+            width={70}
             priority
-            width={100}
-            height={100}
+            height={70}
             alt="VidPlus"
-            className="animate__animated animate__fadeIn animate__delay-0.5s mx-auto cursor-pointer rounded-full border-2 border-pink-400 p-2    hover:bg-zinc-100 hover:shadow-lg active:opacity-70"
+            className="animate__animated animate__fadeIn animate__delay-0.5s mx-auto cursor-pointer rounded-full     shadow-lg hover:bg-zinc-100 active:opacity-70"
           />
         </Link>
         <div className="mt-5 space-y-2 text-center">
-          <h3 className="text-2xl font-bold text-gray-800 sm:text-3xl">
+          <h3 className="text-2xl font-bold text-gray-800 ">
             Create your Account
           </h3>
           <p className="">

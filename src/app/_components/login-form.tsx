@@ -42,16 +42,16 @@ export default function LoginForm() {
         <div className="text-center">
           <Link href="/">
             <Image
-              src="https://cdn-icons-png.flaticon.com/128/6268/6268670.png"
-              width={100}
+              src="https://cdn-icons-png.flaticon.com/128/3845/3845856.png"
+              width={70}
               priority
-              height={100}
+              height={70}
               alt="VidPlus"
-              className="animate__animated animate__fadeIn animate__delay-0.5s mx-auto cursor-pointer rounded-full  border-2  border-pink-400 p-2 hover:bg-zinc-100 hover:shadow-lg active:opacity-70"
+              className="animate__animated animate__fadeIn animate__delay-0.5s mx-auto cursor-pointer rounded-full     shadow-lg hover:bg-zinc-100 active:opacity-70"
             />
           </Link>
           <div className="mt-5 space-y-2">
-            <h3 className="text-2xl font-bold text-gray-800 sm:text-3xl">
+            <h3 className="text-2xl font-bold text-gray-800 ">
               Log in to your account
             </h3>
             <p className="">

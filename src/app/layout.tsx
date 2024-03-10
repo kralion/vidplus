@@ -10,7 +10,7 @@ export const metadata = {
   icons: [
     {
       rel: "icon",
-      url: "https://cdn-icons-png.flaticon.com/128/6268/6268670.png",
+      url: "https://cdn-icons-png.flaticon.com/128/3845/3845856.png",
     },
   ],
 };

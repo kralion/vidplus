@@ -49,12 +49,12 @@ export default function NavBar() {
     <section className="fixed z-10 flex w-full items-center justify-between bg-indigo-600 px-24 py-4 text-white shadow-md backdrop-blur-xl">
       <Link
         href="/"
-        className="flex items-center gap-1 hover:opacity-80 active:opacity-60"
+        className="flex items-center gap-2 hover:opacity-80 active:opacity-60"
       >
         <Image
-          src="https://cdn-icons-png.flaticon.com/128/6268/6268670.png"
-          width={60}
-          height={60}
+          src="https://cdn-icons-png.flaticon.com/128/3845/3845856.png"
+          width={40}
+          height={40}
           alt="logo"
         />
         <h1 className="text-3xl font-extrabold tracking-tight">Vidplus</h1>
