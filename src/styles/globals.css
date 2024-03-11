@@ -5,7 +5,7 @@
 
 /* Add webkit style for scroll bar */
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 2px;
 }
 
 ::-webkit-scrollbar-track {
@@ -13,7 +13,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #6366f1;
+  background-color: #6e70d4;
   border-radius: 4px;
 }
 
@@ -36,7 +36,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #4f46e5;
+  background-color: #635ecf;
   border-radius: 4px;
 }
 

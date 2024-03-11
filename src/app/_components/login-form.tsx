@@ -33,7 +33,7 @@ export default function LoginForm() {
     setTimeout(() => {
       setIsLoading(false);
     }, 2000);
-    router.push("/dashboard");
+    router.push("/vidplus/dashboard");
   };
 
   return (
