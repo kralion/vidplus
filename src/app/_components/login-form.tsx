@@ -5,9 +5,19 @@ import {
   EnvelopeClosedIcon,
   InfoCircledIcon,
   LockClosedIcon,
+  LockOpen2Icon,
+  PersonIcon,
   TokensIcon,
 } from "@radix-ui/react-icons";
-import { AlertDialog, Flex, TextField, Button, Link } from "@radix-ui/themes";
+import {
+  AlertDialog,
+  Flex,
+  TextField,
+  Button,
+  Link,
+  Text,
+  Box,
+} from "@radix-ui/themes";
 import "animate.css";
 import Image from "next/image";
 import { useState } from "react";
@@ -38,6 +48,7 @@ export default function LoginForm() {
     if (response?.error) {
       alert(response.error);
     }
+    router.push("/vidplus/dashboard");
   }
   const onSubmit = async (data: z.infer<typeof SignInSchema>) => {
     setIsLoading(true);
@@ -160,37 +171,20 @@ export default function LoginForm() {
           )}
           Continue with Discord
         </Button>
-
-        <AlertDialog.Root>
-          <AlertDialog.Trigger>
-            <Link
-              color="indigo"
-              className="flex w-full justify-center text-center text-sm"
-            >
-              Forgot password?
-            </Link>
-          </AlertDialog.Trigger>
-          <AlertDialog.Content style={{ maxWidth: 450 }}>
-            <AlertDialog.Title>Password Recovery</AlertDialog.Title>
-            <AlertDialog.Description size="2">
-              We will send you an email to reset your password to the email
-              registered in your account.
-            </AlertDialog.Description>
-
-            <Flex gap="3" mt="4" justify="end">
-              <AlertDialog.Cancel>
-                <Button variant="soft" color="gray">
-                  Cancel
-                </Button>
-              </AlertDialog.Cancel>
-              <AlertDialog.Action>
-                <Button variant="solid" color="red">
-                  Send
-                </Button>
-              </AlertDialog.Action>
-            </Flex>
-          </AlertDialog.Content>
-        </AlertDialog.Root>
+        <Flex
+          justify="center"
+          gap="4"
+          className="flex items-center justify-center"
+        >
+          <Text className="text-center text-sm">
+            <PersonIcon className="mr-1 inline-block h-4 w-4" />
+            brayan@gmail.com
+          </Text>
+          <Text className="text-center text-sm">
+            <LockOpen2Icon className="mr-1 inline-block h-4 w-4" />
+            admin
+          </Text>
+        </Flex>
       </div>
     </main>
   );

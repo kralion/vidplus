@@ -58,7 +58,7 @@ export default function NavBar() {
       <Button
         onClick={() =>
           signOut({
-            callbackUrl: "/login",
+            callbackUrl: "/docs",
           })
         }
         variant="classic"
