@@ -8,7 +8,7 @@ import DiscordProvider from "next-auth/providers/discord";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { env } from "@/env.mjs";
 import { db } from "@/server/db";
-import { compare } from "bcrypt";
+import { compare } from "bcryptjs";
 
 /**
  * Module augmentation for `next-auth` types. Allows us to add custom properties to the `session`
@@ -31,17 +31,20 @@ declare module "next-auth" {
  */
 export const authOptions: NextAuthOptions = {
   callbacks: {
-    session: ({ session, user }) => ({
-      ...session,
-      user: {
-        ...session.user,
-        id: user.id,
-      },
-    }),
+    session({ session, user }) {
+      return {
+        ...session,
+        user: {
+          ...session.user,
+          name: user.name,
+        },
+      };
+    },
   },
   pages: {
     signIn: "/login",
   },
+  secret: env.NEXTAUTH_SECRET ?? "",
   adapter: PrismaAdapter(db),
   providers: [
     DiscordProvider({
@@ -71,10 +74,9 @@ export const authOptions: NextAuthOptions = {
           return null;
         }
 
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
         const matchPassword = await compare(
           credentials.password,
-          userFound.password as string,
+          userFound.password,
         );
 
         if (userFound && matchPassword)

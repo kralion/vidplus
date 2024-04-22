@@ -1,6 +1,6 @@
-import { Button, Card, Flex, Text } from "@radix-ui/themes";
-import React from "react";
 import { ChevronRightIcon } from "@radix-ui/react-icons";
+import { Button, Flex, Text } from "@radix-ui/themes";
+import React from "react";
 
 export default function ContentCard({
   children,

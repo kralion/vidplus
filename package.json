@@ -25,7 +25,7 @@
     "@trpc/react-query": "^10.37.1",
     "@trpc/server": "^10.37.1",
     "animate.css": "^4.1.1",
-    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
     "clsx": "^2.0.0",
     "cypress": "^13.5.1",
     "next": "^14.0.0",
@@ -40,6 +40,7 @@
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.3",
     "@types/bcrypt": "^5.0.2",
+    "@types/bcryptjs": "^2.4.6",
     "@types/eslint": "^8.44.2",
     "@types/node": "^18.16.0",
     "@types/react": "^18.2.33",

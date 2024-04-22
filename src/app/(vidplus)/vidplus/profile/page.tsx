@@ -1,5 +1,5 @@
+import AvatarUser from "@/app/_components/user-info-avatar";
 import { Heading } from "@radix-ui/themes";
-import React from "react";
 import "animate.css";
 
 export default function Page() {
@@ -12,6 +12,7 @@ export default function Page() {
       >
         Profile
       </Heading>
+      <AvatarUser />
       <span className="duration-400 rounded-full border border-purple-500 bg-gradient-to-t from-purple-600 to-indigo-600 px-2 text-white animate-in fade-in-50">
         Comming Soon
       </span>

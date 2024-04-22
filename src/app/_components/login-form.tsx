@@ -39,14 +39,19 @@ export default function LoginForm() {
       alert(response.error);
     }
   }
-  const onSubmit = (data: z.infer<typeof SignInSchema>) => {
+  const onSubmit = async (data: z.infer<typeof SignInSchema>) => {
     setIsLoading(true);
-    const result = signIn("credentials", {
+    const result = await signIn("credentials", {
       email: data.email,
       password: data.password,
       callbackUrl: "/vidplus/dashboard",
       redirect: true,
     });
+    if (result?.error) {
+      alert(result.error);
+      setIsLoading(false);
+      return;
+    }
     router.push("/vidplus/dashboard");
   };
 

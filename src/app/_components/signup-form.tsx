@@ -9,6 +9,7 @@ import { InfoCircledIcon, TokensIcon } from "@radix-ui/react-icons";
 import { useState } from "react";
 import { api } from "@/trpc/react";
 import { useRouter } from "next/navigation";
+import { hash } from "bcryptjs";
 
 export default function SignUpForm() {
   const {
@@ -23,17 +24,22 @@ export default function SignUpForm() {
   const createMutation = api.user.create.useMutation();
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const onSubmit = (data: z.infer<typeof SignUpSchema>) => {
+  const onSubmit = async (data: z.infer<typeof SignUpSchema>) => {
+    const hashedPassword = await hash(data.password, 10);
     setIsLoading(true);
-    createMutation.mutate(data, {
-      onSuccess: () => {
-        alert("User created successfully");
-        router.push("/login");
+    createMutation.mutate(
+      { ...data, password: hashedPassword },
+      {
+        onSuccess: () => {
+          alert("User created successfully");
+          router.push("/login");
+        },
+        onError: (error) => {
+          alert(error.message);
+        },
       },
-      onError: (error) => {
-        alert(error.message);
-      },
-    });
+    );
+    setIsLoading(false);
   };
 
   return (
